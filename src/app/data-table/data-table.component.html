@@ -1,0 +1,28 @@
+<h2>Data Table</h2>
+
+<h1 style="color: red;">{{errorMssg}}</h1>
+<table>
+    <tr>
+        <th>User Id</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+    </tr>
+    <tr *ngFor = "let data of dataJson | paginate: { 
+        itemsPerPage:10,
+        currentPage: page,
+        totalItems: totalRecords}">
+        
+        <td>{{data.userId}}</td>
+        <td>{{data.id}}</td>
+        <td>{{data.title}}</td>
+        <td>{{data.body}}</td>
+    </tr>
+
+</table>
+<br>
+
+<div>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+
